@@ -1,3 +1,4 @@
+import exceptions.DadosInvalidosException;
 
 public class Produto {
 	
@@ -22,18 +23,20 @@ public class Produto {
 		return preco;
 	}
 	public void setPreco(double preco) {
-		if(preco > 0) {
-			this.preco = preco;
+		if(preco <= 0) {
+			throw new DadosInvalidosException("Preço Invalido, preco não pode ser negativo");
 		}
+		this.preco = preco;
 		
 	}
 	public int getQuantidadeEstoque() {
 		return quantidadeEstoque;
 	}
 	public void setQuantidadeEstoque(int quantidadeEstoque) {
-		if(quantidadeEstoque >= 0) {
-			this.quantidadeEstoque = quantidadeEstoque;
+		if(quantidadeEstoque < 0) {
+			throw new DadosInvalidosException("Estoque não pode ser menor que zero");
 		}
+		this.quantidadeEstoque = quantidadeEstoque;
 		
 	}
 	

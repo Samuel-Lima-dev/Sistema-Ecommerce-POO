@@ -1,3 +1,4 @@
+import exceptions.DadosInvalidosException;
 
 public class Usuario {
 	
@@ -22,27 +23,30 @@ public class Usuario {
 		return this.nome;
 	}
 	public void setNome(String nome) {
-		if(nome != null && !nome.isEmpty()) {
-			this.nome = nome;
+		if(nome == null || nome.isEmpty()) {
+			throw new DadosInvalidosException("Nome não pode está em branco");
 		}
+		this.nome = nome;
 		
 	}
 	public String getEmail() {
 		return this.email;
 	}
 	public void setEmail(String email) {
-		if(email != null && !email.isEmpty() ) {
-			this.email = email;
+		if(email == null || email.isEmpty() ) {
+			throw new DadosInvalidosException("Email não é válido.");
 		}
+		this.email = email;
 		
 	}
 	public String getCpf() {
 		return this.cpf;
 	}
 	public void setCpf(String cpf) {
-		if(cpf != null && !cpf.isEmpty() && cpf.length() == 11) {
-			this.cpf = cpf;
+		if(cpf == null || cpf.isEmpty() || cpf.length() != 11) {
+			throw new DadosInvalidosException("Cpf Inválido!");
 		}
+		this.cpf = cpf;
 		
 	}
 	public String getTelefone() {
