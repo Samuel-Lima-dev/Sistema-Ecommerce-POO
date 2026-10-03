@@ -8,10 +8,8 @@ public class PagamentoPix implements Pagamento{
 	private StatusPagamento status;
 	
 	public PagamentoPix(String chavePix) {
-		if(chavePix == null || chavePix.isEmpty()) {
-			throw new DadosInvalidosException("Chave pix inválida");
-		}
-		this.chavePix = chavePix;
+		
+		setChavePix(chavePix);
 		this.status = StatusPagamento.PENDENTE;
 	}
 	
@@ -25,4 +23,17 @@ public class PagamentoPix implements Pagamento{
 		this.status = StatusPagamento.APROVADO;
 		return true;
 	}
+
+	public String getChavePix() {
+		return chavePix;
+	}
+
+	public void setChavePix(String chavePix) {
+		if(chavePix == null || chavePix.isEmpty()) {
+			throw new DadosInvalidosException("Chave pix inválida");
+		}
+		this.chavePix = chavePix;
+	}
+	
+	
 }
