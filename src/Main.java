@@ -1,6 +1,7 @@
 import exceptions.DadosInvalidosException;
-public class Main {
+import pagamento.PagamentoPix;
 
+public class Main {
 	public static void main(String[] args) {
 		
 		
@@ -12,7 +13,9 @@ public class Main {
 			System.out.println("Erro: " + e.getMessage());
 		}
 		
-		
+		PagamentoPix pix = new PagamentoPix("81995695865");
+		pix.processarPagamento(500);
 	}
 
 }
+ 
