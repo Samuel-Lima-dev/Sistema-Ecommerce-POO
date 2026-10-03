@@ -7,9 +7,8 @@ public class Usuario {
 	private String telefone;
 	
 	public Usuario(String nome, String email, String cpf) {	
-		setNome(nome);
-		setEmail(email);
-		setCpf(cpf);
+		this(nome, email,cpf, null);
+		
 	}
 	
 	public Usuario(String nome, String email, String cpf, String telefone) {
@@ -23,19 +22,28 @@ public class Usuario {
 		return this.nome;
 	}
 	public void setNome(String nome) {
-		this.nome = nome;
+		if(nome != null && !nome.isEmpty()) {
+			this.nome = nome;
+		}
+		
 	}
 	public String getEmail() {
 		return this.email;
 	}
 	public void setEmail(String email) {
-		this.email = email;
+		if(email != null && !email.isEmpty() ) {
+			this.email = email;
+		}
+		
 	}
 	public String getCpf() {
 		return this.cpf;
 	}
 	public void setCpf(String cpf) {
-		this.cpf = cpf;
+		if(cpf != null && !cpf.isEmpty() && cpf.length() == 11) {
+			this.cpf = cpf;
+		}
+		
 	}
 	public String getTelefone() {
 		return this.telefone;

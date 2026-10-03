@@ -22,13 +22,19 @@ public class Produto {
 		return preco;
 	}
 	public void setPreco(double preco) {
-		this.preco = preco;
+		if(preco > 0) {
+			this.preco = preco;
+		}
+		
 	}
 	public int getQuantidadeEstoque() {
 		return quantidadeEstoque;
 	}
 	public void setQuantidadeEstoque(int quantidadeEstoque) {
-		this.quantidadeEstoque = quantidadeEstoque;
+		if(quantidadeEstoque >= 0) {
+			this.quantidadeEstoque = quantidadeEstoque;
+		}
+		
 	}
 	
 	
