@@ -1,5 +1,6 @@
 import exceptions.DadosInvalidosException;
 import pagamento.PagamentoPix;
+import pagamento.PagamentoCartao;
 
 public class Main {
 	public static void main(String[] args) {
@@ -15,6 +16,16 @@ public class Main {
 		
 		PagamentoPix pix = new PagamentoPix("81995695865");
 		pix.processarPagamento(500);
+		
+		System.out.println("===========");
+		
+		try {
+			PagamentoCartao cartao = new PagamentoCartao("123456", "joão", "123", 4);
+			cartao.processarPagamento(570);
+		}catch(DadosInvalidosException e){
+			System.out.println(e.getMessage());
+		}
+		
 	}
 
 }
