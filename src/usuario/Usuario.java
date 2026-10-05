@@ -1,3 +1,4 @@
+package usuario;
 import exceptions.DadosInvalidosException;
 
 public class Usuario {
