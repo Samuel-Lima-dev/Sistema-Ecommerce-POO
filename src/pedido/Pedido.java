@@ -42,7 +42,7 @@ public class Pedido {
 		}
 	}
 	
-	public void baixaEstoque(List<ItemCarrinho> itens) {
+	private void baixaEstoque(List<ItemCarrinho> itens) {
 		for(ItemCarrinho item : itens) {
 			 item.getProduto().setQuantidadeEstoque(item.getProduto().getQuantidadeEstoque()-item.getQuantidade());
 		}
