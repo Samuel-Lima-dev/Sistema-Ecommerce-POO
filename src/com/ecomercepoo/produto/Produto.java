@@ -29,6 +29,7 @@ public class Produto {
 		}
 		this.quantidadeEstoque-=quantidade;
 	}
+	
 	public String getDescricao() {
 		return descricao;
 	}

@@ -32,6 +32,9 @@ public class Carrinho {
 	}
 	
 	public void adicionarItem(ItemCarrinho item) {
+		if(item == null) {
+			throw new DadosInvalidosException("Item não pode ser nulo");
+		}
 		itens.add(item);
 	}
 	
