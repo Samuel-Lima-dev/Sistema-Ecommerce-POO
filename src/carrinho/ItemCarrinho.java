@@ -33,9 +33,14 @@ public class ItemCarrinho {
 		return this.quantidade;
 	}
 	
-	public void setQuantidade(int quantidade) {	
+	public void setQuantidade(int quantidade) {
+		
 		if(quantidade < 1) {
 			throw new DadosInvalidosException("Quantidade Incorreta.");
+		}
+		
+		if(this.produto != null && quantidade > this.produto.getQuantidadeEstoque()) {
+			throw new DadosInvalidosException("Estoque Insuficiente");
 		}
 		this.quantidade = quantidade;
 	}

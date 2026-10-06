@@ -87,8 +87,8 @@ public class PagamentoCartao implements Pagamento {
 	}
 	
 	public void setParcela(int parcela) {
-		if(parcela < 1) {
-			throw new DadosInvalidosException("A parcela não pode ser menor que 1");
+		if(parcela < 1 || parcela > 12) {
+			throw new DadosInvalidosException("O número de parcelas deve ser entre 1 e 12");
 		}
 		this.parcela = parcela;
 	}

@@ -28,6 +28,11 @@ public class Pedido {
 	
 	public void finalizarPedido() {
 		
+		// Verificação se o carrinho contém algum item
+		if(carrinho.getItens().isEmpty()) {
+			throw new DadosInvalidosException("Não é possivel finalizar um pedido com o carrinho vazio");
+		}
+		
 		double valorTotal = carrinho.calcularTotal();
 		
 		if(pagamento.processarPagamento(valorTotal)) {
