@@ -85,6 +85,7 @@ public class PagamentoCartao implements Pagamento {
 	public int getParcela() {
 		return this.parcela;
 	}
+	
 	public void setParcela(int parcela) {
 		if(parcela < 1) {
 			throw new DadosInvalidosException("A parcela não pode ser menor que 1");

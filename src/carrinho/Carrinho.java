@@ -1,6 +1,7 @@
 package carrinho;
 
 import java.util.List;
+import exceptions.DadosInvalidosException;
 import java.util.ArrayList;
 
 public class Carrinho {
@@ -11,8 +12,8 @@ public class Carrinho {
 		itens = new ArrayList<ItemCarrinho>();
 	}
 	
-	//Metodo para listar todos os itens do carrinho
-	public void itemCarrinho() {
+	
+	public void detalhesItemCarrinho() {
 		
 		for(ItemCarrinho item: itens) {
 			System.out.println(""
@@ -29,6 +30,22 @@ public class Carrinho {
 		itens.add(item);
 	}
 	
+	public void removerItem(ItemCarrinho item) {
+		
+		if(!itens.contains(item)) {
+			throw new DadosInvalidosException("O item informado não está no carrinho!");
+		}
+		itens.remove(item);
+	}
+	
+	public void alterarQuantidadeItem(ItemCarrinho item, int novaQuantidade) {
+		
+		if (item == null || !itens.contains(item)) {
+	        throw new DadosInvalidosException("Item não encontrado no carrinho para alterar quantidade!");
+	    }
+	    item.setQuantidade(novaQuantidade);
+	}
+	
 	public double calcularTotal() {
 		double total = 0;
 		
@@ -36,6 +53,10 @@ public class Carrinho {
 			total += item.getSubTotal();
 		}
 		return total;
+	}
+	
+	public List<ItemCarrinho> getItens(){
+		return itens;
 	}
 
 }
