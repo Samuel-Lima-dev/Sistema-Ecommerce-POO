@@ -1,12 +1,12 @@
-package pedido;
+package com.ecomercepoo.pedido;
 import java.util.List;
 
-import carrinho.Carrinho;
-import carrinho.ItemCarrinho;
-import exceptions.DadosInvalidosException;
-import pagamento.Pagamento;
-import pagamento.StatusPagamento;
-import usuario.Usuario;
+import com.ecomercepoo.carrinho.Carrinho;
+import com.ecomercepoo.carrinho.ItemCarrinho;
+import com.ecomercepoo.exception.DadosInvalidosException;
+import com.ecomercepoo.pagamento.Pagamento;
+import com.ecomercepoo.pagamento.StatusPagamento;
+import com.ecomercepoo.usuario.Usuario;
 
 public class Pedido {
 	private static int contadorPedido = 1;
@@ -37,11 +37,15 @@ public class Pedido {
 		if(pagamento.processarPagamento(valorTotal)) {
 			setStatus(StatusPagamento.APROVADO);
 			this.baixaEstoque(carrinho.getItens());
+			carrinho.limparCarrinho();
+			
+			System.out.println("Pagamento: "+getStatus());
 		}else {
 			setStatus(StatusPagamento.RECUSADO);
 		}
 	}
 	
+	// Dar baixa no estoque apos pagamento aprovado
 	private void baixaEstoque(List<ItemCarrinho> itens) {
 		for(ItemCarrinho item : itens) {
 			 item.getProduto().setQuantidadeEstoque(item.getProduto().getQuantidadeEstoque()-item.getQuantidade());
@@ -51,7 +55,6 @@ public class Pedido {
 	public Carrinho getCarrinho() {
 		return carrinho;
 	}
-
 
 	public void setCarrinho(Carrinho carrinho) {
 		if(carrinho == null) {

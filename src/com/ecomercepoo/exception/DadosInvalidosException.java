@@ -1,4 +1,4 @@
-package exceptions;
+package com.ecomercepoo.exception;
 
 public class DadosInvalidosException extends RuntimeException{
 	

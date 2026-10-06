@@ -1,7 +1,7 @@
-package carrinho;
+package com.ecomercepoo.carrinho;
 
-import produto.Produto;
-import exceptions.DadosInvalidosException;
+import com.ecomercepoo.exception.DadosInvalidosException;
+import com.ecomercepoo.produto.Produto;
 
 public class ItemCarrinho {
 	

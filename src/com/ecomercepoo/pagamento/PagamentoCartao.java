@@ -1,6 +1,6 @@
-package pagamento;
+package com.ecomercepoo.pagamento;
 
-import exceptions.DadosInvalidosException;
+import com.ecomercepoo.exception.DadosInvalidosException;
 
 public class PagamentoCartao implements Pagamento {
 	

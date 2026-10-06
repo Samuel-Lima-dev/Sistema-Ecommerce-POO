@@ -1,5 +1,5 @@
-package usuario;
-import exceptions.DadosInvalidosException;
+package com.ecomercepoo.usuario;
+import com.ecomercepoo.exception.DadosInvalidosException;
 
 public class Usuario {
 	

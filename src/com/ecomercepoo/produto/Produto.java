@@ -1,5 +1,5 @@
-package produto;
-import exceptions.DadosInvalidosException;
+package com.ecomercepoo.produto;
+import com.ecomercepoo.exception.DadosInvalidosException;
 
 public class Produto {
 	
@@ -13,6 +13,11 @@ public class Produto {
 		setQuantidadeEstoque(quantidadeEstoque);
 	}
 	
+	public void detalheProduto() {
+		System.out.println("Descrição: "+this.getDescricao());
+		System.out.println("Preço: "+this.getPreco());
+		System.out.println("Estoque: "+this.getQuantidadeEstoque());
+	}
 	public String getDescricao() {
 		return descricao;
 	}

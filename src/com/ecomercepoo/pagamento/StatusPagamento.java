@@ -1,4 +1,4 @@
-package pagamento;
+package com.ecomercepoo.pagamento;
 
 public enum StatusPagamento {
 
