@@ -1,10 +1,9 @@
 package com.ecomercepoo.carrinho;
 
 import java.util.List;
-
-import com.ecomercepoo.exception.DadosInvalidosException;
-
 import java.util.ArrayList;
+import java.util.Collections;
+import com.ecomercepoo.exception.DadosInvalidosException;
 
 public class Carrinho {
 	
@@ -68,7 +67,7 @@ public class Carrinho {
 	}
 	
 	public List<ItemCarrinho> getItens(){
-		return itens;
+		return Collections.unmodifiableList(itens);
 	}
 
 }
