@@ -12,7 +12,6 @@ public class Carrinho {
 		itens = new ArrayList<ItemCarrinho>();
 	}
 	
-	
 	public void detalhesItemCarrinho() {
 		
 		for(ItemCarrinho item: itens) {

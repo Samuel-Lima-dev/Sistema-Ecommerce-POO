@@ -6,7 +6,6 @@ import carrinho.ItemCarrinho;
 import exceptions.DadosInvalidosException;
 import pagamento.Pagamento;
 import pagamento.StatusPagamento;
-import produto.Produto;
 import usuario.Usuario;
 
 public class Pedido {
@@ -55,6 +54,9 @@ public class Pedido {
 
 
 	public void setCarrinho(Carrinho carrinho) {
+		if(carrinho == null) {
+			throw new DadosInvalidosException("Carrinho não pede ser nulo");
+		}
 		this.carrinho = carrinho;
 	}
 
@@ -65,6 +67,9 @@ public class Pedido {
 
 
 	public void setUsuario(Usuario usuario) {
+		if(usuario == null) {
+			throw new DadosInvalidosException("Usuario não pode ser nulo");
+		}
 		this.usuario = usuario;
 	}
 
@@ -75,6 +80,9 @@ public class Pedido {
 
 
 	public void setPagamento(Pagamento pagamento) {
+		if(pagamento == null) {
+			throw new DadosInvalidosException("Pagamento não pode ser nulo");
+		}
 		this.pagamento = pagamento;
 	}
 
