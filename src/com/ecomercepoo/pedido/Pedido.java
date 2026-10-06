@@ -48,7 +48,7 @@ public class Pedido {
 	// Dar baixa no estoque apos pagamento aprovado
 	private void baixaEstoque(List<ItemCarrinho> itens) {
 		for(ItemCarrinho item : itens) {
-			 item.getProduto().setQuantidadeEstoque(item.getProduto().getQuantidadeEstoque()-item.getQuantidade());
+			 item.getProduto().baixaEstoque(item.getQuantidade());
 		}
 	}
 	

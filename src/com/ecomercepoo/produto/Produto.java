@@ -18,6 +18,17 @@ public class Produto {
 		System.out.println("Preço: "+this.getPreco());
 		System.out.println("Estoque: "+this.getQuantidadeEstoque());
 	}
+	
+	public void baixaEstoque(int quantidade) {
+		
+		if(quantidade <= 0) {
+			throw new DadosInvalidosException("Quantidade inválida");
+		}
+		if(quantidade > getQuantidadeEstoque()) {
+			throw new DadosInvalidosException("Estoque insuficiente");
+		}
+		this.quantidadeEstoque-=quantidade;
+	}
 	public String getDescricao() {
 		return descricao;
 	}
