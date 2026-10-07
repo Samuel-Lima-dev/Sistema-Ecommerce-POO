@@ -15,7 +15,10 @@ public class ProdutoDigital extends Produto{
 	
 	@Override
 	public void detalheProduto() {
-		
+		System.out.println("Descrição: " + getDescricao());
+	    System.out.println("Preço: R$ " + getPreco());
+	    System.out.println("Tamanho MB: " + getTamanhoMb() + " MB");
+	    System.out.println("Link de Download: " + getLinkDownload());
 	}
 
 	public double getTamanhoMb() {

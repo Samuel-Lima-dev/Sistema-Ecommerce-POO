@@ -23,7 +23,12 @@ public class ProdutoFisico extends Produto{
 	
 	@Override
 	public void detalheProduto() {
-		
+		System.out.println("Descrição: " + getDescricao());
+	    System.out.println("Preço: R$ " + getPreco());
+	    System.out.println("Estoque: " + getQuantidadeEstoque());
+	    
+	    if (this.kg > 0) System.out.println("Peso: " + this.kg + " kg");
+	    if (this.tamanhoPolegada > 0) System.out.println("Tamanho: " + this.tamanhoPolegada + "\" ");
 	}
 	
 	public void baixarEstoque(int quantidade) {

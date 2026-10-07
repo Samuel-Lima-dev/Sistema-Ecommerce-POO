@@ -14,7 +14,7 @@ public class Main {
 		
 		// TESTES
 		
-		Produto produto1 = new ProdutoFisico("Notebook", 3000.00, 10);
+		Produto produto1 = new ProdutoFisico("Notebook", 3000.00, 10, 50, 18);
 		Produto produto2 = new ProdutoFisico("Smartphone", 2500.00, 10);
 		Produto produto3 = new ProdutoDigital("PDF", 50.00, 25.0, "www.baixarPDF.com");
 		Produto produto4 = new ProdutoDigital("E-book", 85.00, 25.0, "www.baixarEbook.com");
@@ -26,25 +26,24 @@ public class Main {
 		
 		ItemCarrinho item1 = new ItemCarrinho(produto1, 1);
 		ItemCarrinho item2 = new ItemCarrinho(produto2, 1);
-		ItemCarrinho item3 = new ItemCarrinho(produto2, 1);
+		ItemCarrinho item3 = new ItemCarrinho(produto3, 1);
 		
 		carrinho.adicionarItem(item1);
 		carrinho.adicionarItem(item2);
 		carrinho.adicionarItem(item3);
-		carrinho.detalhesItemCarrinho();
-		System.out.println();
+		//carrinho.detalhesItemCarrinho();
+		//System.out.println();
 		
 		Pedido pedido = new Pedido(carrinho, usuario, pix);
 		//pedido.finalizarPedido();
 		
 		//System.out.println(pedido.getStatus());
-		//;
-		carrinho.removerItem(item1);
+		//carrinho.removerItem(item1);
 		//carrinho.detalhesItemCarrinho();
 		
-		System.out.println();
-		//produto1.detalheProduto();
-		carrinho.detalhesItemCarrinho();
+		//System.out.println();
+		produto1.detalheProduto();
+		//carrinho.detalhesItemCarrinho();
 
 	}
 
