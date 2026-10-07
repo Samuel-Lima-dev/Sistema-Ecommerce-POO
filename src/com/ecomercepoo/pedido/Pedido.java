@@ -7,6 +7,7 @@ import com.ecomercepoo.exception.DadosInvalidosException;
 import com.ecomercepoo.pagamento.Pagamento;
 import com.ecomercepoo.pagamento.StatusPagamento;
 import com.ecomercepoo.usuario.Usuario;
+import com.ecomercepoo.produto.ProdutoFisico;
 
 public class Pedido {
 	private static int contadorPedido = 1;
@@ -42,14 +43,19 @@ public class Pedido {
 			System.out.println("Pagamento: "+getStatus());
 		}else {
 			setStatus(StatusPagamento.RECUSADO);
+			System.out.println("O pagamento foi RECUSADO. O carrinho permanece salvo.");
 		}
 	}
 	
 	// Dar baixa no estoque apos pagamento aprovado
 	private void baixaEstoque(List<ItemCarrinho> itens) {
 		for(ItemCarrinho item : itens) {
-			 item.getProduto().baixaEstoque(item.getQuantidade());
+			
+			if(item.getProduto() instanceof ProdutoFisico produtoFisico) {
+				produtoFisico.baixarEstoque(item.getQuantidade());
+			}
 		}
+		
 	}
 	
 	public Carrinho getCarrinho() {

@@ -1,34 +1,18 @@
 package com.ecomercepoo.produto;
 import com.ecomercepoo.exception.DadosInvalidosException;
 
-public class Produto {
+public abstract class Produto {
 	
 	private String descricao;
 	private double preco;
-	private int quantidadeEstoque;
 	
-	public Produto(String descricao, double preco, int quantidadeEstoque) {
+	public Produto(String descricao, double preco) {
 		setDescricao(descricao);
 		setPreco(preco);
-		setQuantidadeEstoque(quantidadeEstoque);
 	}
 	
-	public void detalheProduto() {
-		System.out.println("Descrição: "+this.getDescricao());
-		System.out.println("Preço: "+this.getPreco());
-		System.out.println("Estoque: "+this.getQuantidadeEstoque());
-	}
-	
-	public void baixaEstoque(int quantidade) {
-		
-		if(quantidade <= 0) {
-			throw new DadosInvalidosException("Quantidade inválida");
-		}
-		if(quantidade > getQuantidadeEstoque()) {
-			throw new DadosInvalidosException("Estoque insuficiente");
-		}
-		this.quantidadeEstoque-=quantidade;
-	}
+	//Método abstrato
+	public abstract void detalheProduto();
 	
 	public String getDescricao() {
 		return descricao;
@@ -51,17 +35,5 @@ public class Produto {
 		}
 		this.preco = preco;	
 	}
-	
-	public int getQuantidadeEstoque() {
-		return quantidadeEstoque;
-	}
-	
-	public void setQuantidadeEstoque(int quantidadeEstoque) {
-		if(quantidadeEstoque < 0) {
-			throw new DadosInvalidosException("Estoque não pode ser menor que zero");
-		}
-		this.quantidadeEstoque = quantidadeEstoque;	
-	}
-	
 	
 }

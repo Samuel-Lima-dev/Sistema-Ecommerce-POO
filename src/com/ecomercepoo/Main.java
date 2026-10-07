@@ -5,6 +5,8 @@ import com.ecomercepoo.pagamento.Pagamento;
 import com.ecomercepoo.pagamento.PagamentoPix;
 import com.ecomercepoo.pedido.Pedido;
 import com.ecomercepoo.produto.Produto;
+import com.ecomercepoo.produto.ProdutoDigital;
+import com.ecomercepoo.produto.ProdutoFisico;
 import com.ecomercepoo.usuario.Usuario;
 
 public class Main {
@@ -12,10 +14,10 @@ public class Main {
 		
 		// TESTES
 		
-		Produto produto1 = new Produto("Notebook", 3000.00, 10);
-		Produto produto2 = new Produto("Smartphone", 2500.00, 10);
-		Produto produto3 = new Produto("Mesa", 2889.00, 10);
-		Produto produto4 = new Produto("Sofá", 2500.00, 10);
+		Produto produto1 = new ProdutoFisico("Notebook", 3000.00, 10);
+		Produto produto2 = new ProdutoFisico("Smartphone", 2500.00, 10);
+		Produto produto3 = new ProdutoDigital("PDF", 50.00, 25.0, "www.baixarPDF.com");
+		Produto produto4 = new ProdutoDigital("E-book", 85.00, 25.0, "www.baixarEbook.com");
 		
 		
 		Usuario usuario = new Usuario("joao", "joão@.com", "12345678912");
@@ -33,11 +35,11 @@ public class Main {
 		System.out.println();
 		
 		Pedido pedido = new Pedido(carrinho, usuario, pix);
-		pedido.finalizarPedido();
+		//pedido.finalizarPedido();
 		
 		//System.out.println(pedido.getStatus());
 		//;
-		//carrinho.removerItem(item1);
+		carrinho.removerItem(item1);
 		//carrinho.detalhesItemCarrinho();
 		
 		System.out.println();

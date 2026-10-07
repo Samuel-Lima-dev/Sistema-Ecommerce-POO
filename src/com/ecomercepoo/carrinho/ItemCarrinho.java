@@ -2,6 +2,7 @@ package com.ecomercepoo.carrinho;
 
 import com.ecomercepoo.exception.DadosInvalidosException;
 import com.ecomercepoo.produto.Produto;
+import com.ecomercepoo.produto.ProdutoFisico;
 
 public class ItemCarrinho {
 	
@@ -39,9 +40,15 @@ public class ItemCarrinho {
 			throw new DadosInvalidosException("Quantidade Incorreta.");
 		}
 		
-		if(this.produto != null && quantidade > this.produto.getQuantidadeEstoque()) {
-			throw new DadosInvalidosException("Estoque Insuficiente");
+		//Válidar estoque apenas se o produto for um produto fisico
+		if(this.produto instanceof ProdutoFisico produtoFisico) {
+			if(quantidade > produtoFisico.getQuantidadeEstoque()) {
+				throw new DadosInvalidosException("Estoque Insuficiente");
+			}
 		}
+		
 		this.quantidade = quantidade;
 	}
+	
+	
 }
